@@ -32,9 +32,10 @@ import javax.jms.TextMessage;
  * @author Serge Pagop (spagop@redhat.com)
  */
 @MessageDriven(name = "HelloWorldQTopicMDB", activationConfig = {
-        @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "topic/HELLOWORLDMDBTopic"),
+        @ActivationConfigProperty(propertyName = "destination", propertyValue = "testTopic"),
         @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic"),
-        @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge")})
+        @ActivationConfigProperty(propertyValue = "20",propertyName = "maxSession"),
+        @ActivationConfigProperty(propertyValue = "false",propertyName = "useJNDI")})
 public class HelloWorldTopicMDB implements MessageListener {
 
     private static final Logger LOGGER = Logger.getLogger(HelloWorldTopicMDB.class.toString());

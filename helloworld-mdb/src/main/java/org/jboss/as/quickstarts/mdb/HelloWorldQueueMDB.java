@@ -32,9 +32,11 @@ import javax.jms.TextMessage;
  * @author Serge Pagop (spagop@redhat.com)
  */
 @MessageDriven(name = "HelloWorldQueueMDB", activationConfig = {
-        @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "queue/HELLOWORLDMDBQueue"),
+        @ActivationConfigProperty(propertyName = "destination", propertyValue = "TestQueue"),
         @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
-        @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge")})
+        @ActivationConfigProperty(propertyValue = "30",propertyName = "maxSession"),
+        @ActivationConfigProperty(propertyValue = "false",propertyName = "useJNDI")}
+        )
 public class HelloWorldQueueMDB implements MessageListener {
 
     private static final Logger LOGGER = Logger.getLogger(HelloWorldQueueMDB.class.toString());
